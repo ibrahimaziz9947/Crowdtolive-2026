@@ -1,0 +1,774 @@
+.homepage {
+  --home-indigo: #0c065c;
+  --home-purple: #3f3192;
+  --home-green: #04b48c;
+  --home-green-hover: #00fcc1;
+  --home-body: #324a6d;
+  --home-heading: #1f2853;
+  --home-white: #ffffff;
+  --home-shell: 1140px;
+  min-height: 100vh;
+  background: #ffffff;
+  color: var(--home-body);
+  font-family: var(--font-home-figtree), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+.homepage *,
+.homepage *::before,
+.homepage *::after {
+  box-sizing: border-box;
+}
+
+.homepage a {
+  text-decoration: none;
+}
+
+.homepage p,
+.homepage h1,
+.homepage h2,
+.homepage h3 {
+  margin: 0;
+}
+
+.headingLine {
+  display: block;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: var(--home-indigo);
+  padding: 2% 5%;
+}
+
+.headerInner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoLink,
+.footerLogoLink {
+  display: inline-flex;
+  justify-content: center;
+}
+
+.logo {
+  width: min(24vw, 320px);
+  min-width: 220px;
+  height: auto;
+  display: block;
+}
+
+.heroSection {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 72vh;
+  overflow: hidden;
+  background: var(--home-purple);
+}
+
+.heroVideo,
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+}
+
+.heroVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.heroOverlay {
+  background: rgba(63, 49, 146, 0.51);
+}
+
+.heroInner {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 902px);
+  padding: 12px 24px 24px;
+  text-align: center;
+  color: var(--home-white);
+}
+
+.heroEyebrow {
+  padding-top: 12px;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.heroTitle {
+  margin-top: 20px;
+  font-family: var(--font-home-poppins), Arial, Helvetica, sans-serif;
+  font-size: 62px;
+  font-weight: 700;
+  line-height: 0.98;
+  color: var(--home-white);
+}
+
+.heroCopy {
+  margin-top: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.heroCopy p + p {
+  margin-top: 9px;
+}
+
+.heroActionWrap {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+}
+
+.ctaButton {
+  display: inline-block;
+  border-radius: 10px;
+  background: var(--home-green);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  padding: 18px 40px;
+  color: var(--home-white);
+  font-family: var(--font-home-montserrat), Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+}
+
+.ctaButton:hover {
+  background: var(--home-green-hover);
+  transform: translateY(-2px);
+}
+
+.ctaButton span {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.propertiesSection {
+  background: var(--home-indigo);
+}
+
+.propertiesInner {
+  max-width: var(--home-shell);
+  margin: 0 auto;
+  padding: 12px 20px;
+}
+
+.propertiesText {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  color: var(--home-white);
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.propertiesText > span:first-child {
+  font-weight: 400;
+}
+
+.propertyItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.propertyIcon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+}
+
+.benefitsSection {
+  padding: 50px 20px 70px;
+  background: #ffffff;
+}
+
+.benefitsInner {
+  max-width: var(--home-shell);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(320px, 1fr);
+  align-items: center;
+  gap: 32px 56px;
+}
+
+.benefitsIntro {
+  text-align: center;
+}
+
+.sectionEyebrow {
+  padding-top: 20px;
+  color: var(--home-heading);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.sectionTitle {
+  margin-top: 20px;
+  font-family: var(--font-home-poppins), Arial, Helvetica, sans-serif;
+  font-size: 35px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #0e065c;
+}
+
+.benefitList {
+  padding-left: 10%;
+}
+
+.benefitItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding-top: 35px;
+}
+
+.benefitIcon {
+  width: 25px;
+  height: 25px;
+  flex: 0 0 25px;
+  color: var(--home-green);
+  fill: currentColor;
+}
+
+.benefitItem h3 {
+  margin-bottom: 7px;
+  color: var(--home-heading);
+  font-family: var(--font-home-poppins), Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.benefitItem p {
+  color: var(--home-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.storySection {
+  background-color: rgba(63, 49, 146, 0.8);
+  background-position: center;
+  background-size: cover;
+  padding: 50px;
+}
+
+.storyInner {
+  max-width: 1203px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(240px, 0.72fr) minmax(320px, 1.28fr);
+  align-items: center;
+  gap: 30px;
+}
+
+.storyVideoWrap {
+  width: 100%;
+  max-width: 300px;
+}
+
+.storyVideo {
+  width: 100%;
+  display: block;
+  background: #000000;
+}
+
+.storyContent {
+  color: var(--home-white);
+}
+
+.storyTitle {
+  font-family: var(--font-home-poppins), Arial, Helvetica, sans-serif;
+  font-size: 35px;
+  font-weight: 400;
+  line-height: 36px;
+}
+
+.storyRating {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  color: var(--home-white);
+}
+
+.storyRating em {
+  margin-left: 4px;
+}
+
+.starIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.storyCopy {
+  margin-top: 12px;
+  color: var(--home-white);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.storyCopy p + p {
+  margin-top: 12px;
+}
+
+.stepsSection {
+  background: #ffffff;
+  padding: 80px 24px 100px;
+}
+
+.stepsInner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stepsTitle {
+  text-align: center;
+  font-family: var(--font-home-poppins), Arial, Helvetica, sans-serif;
+  font-size: 35px;
+  font-weight: 400;
+  color: #0e065c;
+}
+
+.stepsGrid {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 2%;
+}
+
+.stepCard h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: var(--home-heading);
+  font-family: var(--font-home-poppins), Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.stepCard p {
+  color: var(--home-body);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.stepIconWrap {
+  color: currentColor;
+}
+
+.stepGreen {
+  color: var(--home-green);
+}
+
+.stepBlue {
+  color: #467ff7;
+}
+
+.stepIcon {
+  width: 60px;
+  height: 60px;
+  display: block;
+}
+
+.secondaryCtaSection {
+  background: rgba(227, 255, 249, 0.4);
+  padding: 60px 20px;
+}
+
+.secondaryCtaInner {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.secondaryCtaTitle {
+  font-family: var(--font-home-poppins), Arial, Helvetica, sans-serif;
+  font-size: 27px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--home-heading);
+}
+
+.secondaryCtaText {
+  margin-top: 20px;
+  color: var(--home-body);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.secondaryCtaInner .ctaButton {
+  margin-top: 20px;
+}
+
+.faqSection {
+  background-position: center;
+  background-size: cover;
+  padding: 80px 0;
+  color: var(--home-white);
+}
+
+.faqInner {
+  max-width: 975px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.faqTitle {
+  text-align: center;
+  font-family: var(--font-home-poppins), Arial, Helvetica, sans-serif;
+  font-size: 35px;
+  font-weight: 300;
+  line-height: 73px;
+  color: var(--home-white);
+}
+
+.faqList {
+  margin-top: 20px;
+}
+
+.faqItem {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.faqSummary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 0;
+  cursor: pointer;
+  color: var(--home-white);
+  font-family: var(--font-home-figtree), Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.faqSummary::-webkit-details-marker {
+  display: none;
+}
+
+.faqMarker {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  flex: 0 0 15px;
+}
+
+.faqMarker::before,
+.faqMarker::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 15px;
+  height: 2px;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+}
+
+.faqMarker::after {
+  width: 2px;
+  height: 15px;
+}
+
+.faqItem[open] .faqMarker::after {
+  opacity: 0;
+}
+
+.faqAnswer {
+  padding: 0 0 22px;
+  color: var(--home-white);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.socialBlock {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.socialTitle {
+  font-family: var(--font-home-poppins), Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--home-white);
+}
+
+.socialList {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+}
+
+.socialLink {
+  width: 50px;
+  height: 50px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--home-white);
+}
+
+.socialLink svg {
+  width: 25px;
+  height: 25px;
+  fill: currentColor;
+}
+
+.socialFacebook {
+  background: #1877f2;
+}
+
+.socialYoutube {
+  background: #ff0000;
+}
+
+.socialInstagram {
+  background: #b6176d;
+}
+
+.socialLinkedin {
+  background: #0a66c2;
+}
+
+.socialTiktok {
+  background: #000000;
+}
+
+.footer {
+  background: var(--home-indigo);
+  padding: 0 5%;
+}
+
+.footerInner {
+  max-width: var(--home-shell);
+  min-height: 125px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.footerLegal {
+  margin-top: 25px;
+  color: var(--home-white);
+  text-align: center;
+  font-family: var(--font-home-montserrat), Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.footerLogoLink {
+  margin: 0 0 25px;
+}
+
+.footerLogo {
+  width: min(14vw, 200px);
+  min-width: 160px;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 1024px) {
+  .heroSection {
+    min-height: 800px;
+  }
+
+  .heroInner {
+    padding: 40px 25px;
+  }
+
+  .benefitsSection {
+    padding: 100px 25px;
+  }
+
+  .benefitsInner {
+    grid-template-columns: 1fr;
+  }
+
+  .benefitList {
+    padding-left: 0;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .storySection {
+    padding: 50px 30px;
+  }
+
+  .storyInner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .storyVideoWrap {
+    max-width: none;
+  }
+
+  .stepsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 48px 90px;
+    justify-items: center;
+  }
+
+  .faqTitle {
+    line-height: 1.2;
+  }
+}
+
+@media (max-width: 767px) {
+  .header {
+    padding: 6% 11%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .logo {
+    width: 100%;
+    min-width: 0;
+    max-width: 300px;
+  }
+
+  .heroSection {
+    min-height: 612px;
+  }
+
+  .heroInner {
+    padding: 32px 20px 42px;
+  }
+
+  .heroTitle {
+    font-size: 43px;
+  }
+
+  .heroEyebrow {
+    font-size: 22px;
+  }
+
+  .propertiesInner {
+    padding: 10px 16px;
+  }
+
+  .benefitsSection {
+    padding: 50px 20px;
+  }
+
+  .sectionEyebrow {
+    padding-top: 0;
+  }
+
+  .sectionTitle {
+    line-height: 1.2;
+  }
+
+  .benefitItem {
+    padding-top: 15px;
+  }
+
+  .storySection {
+    padding: 36px 16px;
+  }
+
+  .storyTitle,
+  .stepsTitle {
+    font-size: 32px;
+    line-height: 1.2;
+  }
+
+  .stepsSection {
+    padding: 48px 16px;
+  }
+
+  .stepsGrid {
+    grid-template-columns: 1fr;
+    gap: 70px;
+  }
+
+  .stepCard {
+    text-align: center;
+  }
+
+  .stepIconWrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  .secondaryCtaSection {
+    padding: 40px 20px;
+  }
+
+  .secondaryCtaTitle {
+    font-size: 17px;
+  }
+
+  .faqSection {
+    padding: 50px 0;
+  }
+
+  .faqInner {
+    padding: 0 16px;
+  }
+
+  .faqTitle {
+    font-size: 31px;
+    line-height: 1.1;
+  }
+
+  .socialTitle {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  .socialLink {
+    width: 42px;
+    height: 42px;
+  }
+
+  .socialLink svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .footer {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .footerLegal {
+    padding: 10px;
+  }
+
+  .footerLogo {
+    width: 55%;
+    min-width: 0;
+  }
+}

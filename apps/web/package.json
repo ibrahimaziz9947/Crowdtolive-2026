@@ -1,0 +1,32 @@
+{
+  "name": "@crowdtolive/web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@crowdtolive/shared": "^0.1.0",
+    "next": "^15.3.5",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.31.0",
+    "@next/eslint-plugin-next": "^15.3.5",
+    "@tailwindcss/postcss": "^4.3.2",
+    "@types/node": "^20.19.43",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9",
+    "eslint-config-prettier": "^10.1.8",
+    "tailwindcss": "^4.3.2",
+    "typescript": "^5",
+    "typescript-eslint": "^8.37.0"
+  }
+}

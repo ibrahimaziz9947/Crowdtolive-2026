@@ -1,0 +1,115 @@
+.root {
+  --qual-indigo: #0c065c;
+  --qual-green: #04b48c;
+  --qual-green-hover: #00fcc1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--qual-indigo);
+}
+
+.header {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--qual-indigo);
+}
+
+.logo {
+  width: min(420px, 72vw);
+  height: auto;
+  display: block;
+}
+
+.main {
+  flex: 1;
+}
+
+.background {
+  min-height: calc(100vh - 120px);
+  background-image: url("/qualification/bg-thankyou.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 46px 16px;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(63, 49, 146, 0.55);
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  width: min(820px, 100%);
+  text-align: center;
+  color: #ffffff;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0 0 16px;
+}
+
+.copy {
+  font-size: 9px;
+  line-height: 1.5;
+  margin: 0 0 10px;
+}
+
+.storeRow {
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.storeButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--qual-green);
+  color: #ffffff;
+  padding: 10px 14px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.storeButton:hover {
+  background: var(--qual-green-hover);
+}
+
+.storeText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.storeSmall {
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.storeLarge {
+  font-size: 11px;
+  font-weight: 800;
+}
+
+@media (max-width: 640px) {
+  .header {
+    height: 96px;
+  }
+
+  .background {
+    min-height: calc(100vh - 96px);
+  }
+}
+

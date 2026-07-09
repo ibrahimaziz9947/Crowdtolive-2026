@@ -1,0 +1,263 @@
+.root {
+  --qual-indigo: #0c065c;
+  --qual-card: #3f3f93;
+  --qual-green: #04b48c;
+  --qual-green-hover: #00fcc1;
+  --qual-border: rgba(255, 255, 255, 0.55);
+  --qual-placeholder: rgba(255, 255, 255, 0.6);
+  --qual-text: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--qual-indigo);
+}
+
+.header {
+  background: var(--qual-indigo);
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  width: min(420px, 72vw);
+  height: auto;
+  display: block;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.background {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 16px;
+  background-image: url("/qualification/bg-wizard.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(63, 49, 146, 0.55);
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+  width: min(760px, calc(100% - 32px));
+  background: var(--qual-card);
+  padding: 34px 44px 30px;
+  color: var(--qual-text);
+}
+
+.cardTitleTop {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.cardTitle {
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.fieldLabel {
+  font-size: 11px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.control {
+  width: 100%;
+  height: 28px;
+  border: 1px solid var(--qual-border);
+  background: transparent;
+  color: var(--qual-text);
+  padding: 0 10px;
+  font-size: 11px;
+  outline: none;
+}
+
+.control::placeholder {
+  color: var(--qual-placeholder);
+}
+
+.error {
+  margin-top: 8px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.progressBlock {
+  margin-top: 14px;
+}
+
+.progressLabel {
+  font-size: 11px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.progressTrack {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--qual-green);
+  border-radius: 999px;
+}
+
+.navRow {
+  margin-top: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn {
+  border: 0;
+  background: var(--qual-green);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 11px;
+  height: 30px;
+  padding: 0 18px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--qual-green-hover);
+}
+
+.btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.selectWrap {
+  position: relative;
+}
+
+.selectButton {
+  width: 100%;
+  height: 28px;
+  border: 1px solid var(--qual-border);
+  background: transparent;
+  color: var(--qual-text);
+  font-size: 11px;
+  padding: 0 28px 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.selectButtonPlaceholder {
+  color: var(--qual-placeholder);
+}
+
+.caret {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid rgba(255, 255, 255, 0.85);
+  pointer-events: none;
+}
+
+.selectPanel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-top: 6px;
+  border: 1px solid var(--qual-border);
+  background: rgba(47, 47, 120, 0.95);
+  padding: 8px;
+  z-index: 20;
+}
+
+.selectSearch {
+  width: 100%;
+  height: 26px;
+  border: 1px solid var(--qual-border);
+  background: transparent;
+  color: var(--qual-text);
+  font-size: 11px;
+  padding: 0 10px;
+  outline: none;
+}
+
+.optionList {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.optionBtn {
+  background: transparent;
+  border: 0;
+  color: var(--qual-text);
+  text-align: left;
+  font-size: 11px;
+  padding: 4px 2px;
+  cursor: pointer;
+}
+
+.footer {
+  background: var(--qual-indigo);
+}
+
+.footerLegal {
+  padding: 22px 18px;
+  text-align: center;
+  font-size: 9px;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.footerLogoRow {
+  padding: 22px 18px 28px;
+  display: flex;
+  justify-content: center;
+}
+
+.footerLogo {
+  width: min(260px, 60vw);
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .header {
+    height: 96px;
+  }
+
+  .card {
+    padding: 28px 18px 22px;
+  }
+}
+

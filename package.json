@@ -1,0 +1,29 @@
+{
+  "name": "crowdtolive-workspace",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n web,api -c blue,green \"npm run dev -w @crowdtolive/web\" \"npm run dev -w @crowdtolive/api\"",
+    "dev:web": "npm run dev -w @crowdtolive/web",
+    "dev:api": "npm run dev -w @crowdtolive/api",
+    "build": "npm run build -w @crowdtolive/shared && npm run build -w @crowdtolive/api && npm run build -w @crowdtolive/web",
+    "lint": "npm run lint -w @crowdtolive/shared && npm run lint -w @crowdtolive/api && npm run lint -w @crowdtolive/web",
+    "typecheck": "npm run typecheck -w @crowdtolive/shared && npm run typecheck -w @crowdtolive/api && npm run typecheck -w @crowdtolive/web",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "prettier": "^3.6.2"
+  },
+  "dependencies": {
+    "safer-buffer": "^2.1.2"
+  }
+}

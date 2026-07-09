@@ -1,0 +1,1716 @@
+
+      .lp-root {
+        --green: #00c896;
+        --green-dark: #00a87e;
+        --purple: #6c47ff;
+        --purple-dark: #5233e0;
+        --dark: #0f0f1a;
+        --dark-2: #16162a;
+        --text: #1a1a2e;
+        --muted: #6b7280;
+        --border: #f0f0f5;
+        color: var(--text);
+        background: #fff;
+        -webkit-font-smoothing: antialiased;
+      }
+      .lp-root,
+      .lp-root *,
+      .lp-root *::before,
+      .lp-root *::after {
+        box-sizing: border-box;
+      }
+      .lp-root .version-toolbar {
+        background: var(--dark);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 0 48px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 200;
+      }
+      .lp-root .vt-label {
+        font-size: 11px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.35);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+      .lp-root .vt-links {
+        display: flex;
+        gap: 4px;
+      }
+      .lp-root .vt-link {
+        font-size: 12px;
+        font-weight: 600;
+        padding: 5px 14px;
+        border-radius: 100px;
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.5);
+        transition: 0.2s;
+      }
+      .lp-root .vt-link:hover {
+        color: #fff;
+        background: rgba(255, 255, 255, 0.08);
+      }
+      .lp-root .vt-link.active {
+        background: linear-gradient(135deg, var(--purple), var(--green));
+        color: #fff;
+      }
+      .lp-root nav {
+        position: sticky;
+        top: 40px;
+        z-index: 100;
+        background: #0e1461;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 40px;
+        height: 72px;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+      }
+      .lp-root .nav-left {
+        display: flex;
+        align-items: center;
+        gap: 36px;
+      }
+      .lp-root .nav-logo img {
+        height: 36px;
+        width: auto;
+      }
+      .lp-root .nav-links {
+        display: flex;
+        gap: 4px;
+        align-items: center;
+      }
+      .lp-root .nav-links a {
+        font-size: 14px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: 0.2s;
+        padding: 6px 14px;
+        border-radius: 8px;
+      }
+      .lp-root .nav-links a:hover {
+        color: #fff;
+        background: rgba(255, 255, 255, 0.08);
+      }
+      .lp-root .nav-links a.active {
+        background: rgba(255, 255, 255, 0.15);
+        color: #fff;
+      }
+      .lp-root .nav-btns {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+      .lp-root .nav-btn-invest {
+        border: 1.5px solid rgba(255, 255, 255, 0.4);
+        color: #fff;
+        font-weight: 600;
+        font-size: 14px;
+        padding: 9px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: 0.2s;
+        background: transparent;
+      }
+      .lp-root .nav-btn-invest:hover {
+        border-color: #fff;
+        background: rgba(255, 255, 255, 0.08);
+      }
+      .lp-root .nav-btn-home {
+        background: var(--green);
+        color: #fff;
+        font-weight: 700;
+        font-size: 14px;
+        padding: 9px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: 0.2s;
+      }
+      .lp-root .nav-btn-home:hover {
+        background: var(--green-dark);
+      }
+      .lp-root .hero {
+        background: linear-gradient(160deg, var(--dark) 0%, #1a0a3a 50%, #0a2a1a 100%);
+        position: relative;
+        overflow: hidden;
+      }
+      .lp-root .hero.startup,
+      .lp-root .hero.charity {
+        min-height: 88vh;
+        display: flex;
+        align-items: center;
+        padding: 80px 48px;
+      }
+      .lp-root .hero.seo {
+        padding: 88px 48px 72px;
+      }
+      .lp-root .hero.testimonials {
+        padding: 96px 48px 80px;
+        text-align: center;
+      }
+      .lp-root .hero-glow-1,
+      .lp-root .hero-glow-2 {
+        position: absolute;
+        border-radius: 50%;
+        pointer-events: none;
+      }
+      .lp-root .hero-glow-1 {
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(108, 71, 255, 0.25) 0%, transparent 70%);
+      }
+      .lp-root .hero-glow-2 {
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba(0, 200, 150, 0.2) 0%, transparent 70%);
+      }
+      .lp-root .hero.startup .hero-glow-1,
+      .lp-root .hero.charity .hero-glow-1,
+      .lp-root .hero.seo .hero-glow-1 {
+        top: -100px;
+        right: -100px;
+      }
+      .lp-root .hero.startup .hero-glow-2,
+      .lp-root .hero.charity .hero-glow-2,
+      .lp-root .hero.seo .hero-glow-2 {
+        bottom: -100px;
+        left: 100px;
+      }
+      .lp-root .hero.testimonials .hero-glow-1 {
+        top: -150px;
+        right: -100px;
+      }
+      .lp-root .hero.testimonials .hero-glow-2 {
+        bottom: -100px;
+        left: -50px;
+      }
+      .lp-root .hero-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        width: 100%;
+        position: relative;
+        z-index: 1;
+      }
+      .lp-root .hero-inner.startup,
+      .lp-root .hero-inner.charity {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 64px;
+        align-items: center;
+      }
+      .lp-root .hero-inner.seo {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        gap: 60px;
+        align-items: start;
+      }
+      .lp-root .hero-inner.testimonials {
+        max-width: 760px;
+      }
+      .lp-root .hero-badge,
+      .lp-root .hero-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border-radius: 100px;
+        font-size: 13px;
+        font-weight: 600;
+        padding: 6px 16px;
+        margin-bottom: 24px;
+      }
+      .lp-root .hero-badge,
+      .lp-root .hero-chip {
+        background: rgba(108, 71, 255, 0.2);
+        border: 1px solid rgba(108, 71, 255, 0.4);
+        color: #a78bfa;
+      }
+      .lp-root .badge-dot {
+        width: 6px;
+        height: 6px;
+        background: #a78bfa;
+        border-radius: 50%;
+        animation: blink 1.6s infinite;
+      }
+      @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.2; }
+      }
+      .lp-root .breadcrumb {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.35);
+        margin-bottom: 18px;
+      }
+      .lp-root .breadcrumb a {
+        color: rgba(255, 255, 255, 0.35);
+        text-decoration: none;
+      }
+      .lp-root .hero-title {
+        font-weight: 900;
+        color: #fff;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+        margin-bottom: 20px;
+      }
+      .lp-root .hero.startup .hero-title {
+        font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+      }
+      .lp-root .hero.charity .hero-title {
+        font-size: clamp(2.1rem, 4vw, 3.2rem);
+      }
+      .lp-root .hero.seo .hero-title {
+        font-size: clamp(1.9rem, 3.5vw, 2.9rem);
+        line-height: 1.18;
+        margin-bottom: 16px;
+      }
+      .lp-root .hero.testimonials .hero-title {
+        font-size: clamp(2rem, 4.5vw, 3.2rem);
+        margin-bottom: 18px;
+      }
+      .lp-root h1 em,
+      .lp-root h2 em {
+        font-style: normal;
+        background: linear-gradient(90deg, var(--green), var(--purple));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .lp-root .hero p {
+        font-size: 1.05rem;
+        color: rgba(255, 255, 255, 0.65);
+        line-height: 1.75;
+        margin-bottom: 36px;
+      }
+      .lp-root .hero.seo p.hero-sub,
+      .lp-root .hero.testimonials p {
+        font-size: 1.02rem;
+      }
+      .lp-root .hero.testimonials p {
+        max-width: 560px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .lp-root .hero-btns {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+      .lp-root .hero.testimonials .hero-btns {
+        justify-content: center;
+      }
+      .lp-root .btn-grad {
+        background: linear-gradient(135deg, var(--purple), var(--green));
+        color: #fff;
+        font-weight: 700;
+        font-size: 15px;
+        padding: 15px 32px;
+        border-radius: 100px;
+        text-decoration: none;
+        transition: transform 0.2s, box-shadow 0.2s;
+        box-shadow: 0 4px 24px rgba(108, 71, 255, 0.4);
+      }
+      .lp-root .hero.testimonials .btn-grad {
+        padding: 14px 30px;
+        font-size: 0.95rem;
+      }
+      .lp-root .btn-grad:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 32px rgba(108, 71, 255, 0.5);
+      }
+      .lp-root .btn-ghost {
+        border: 1.5px solid rgba(255, 255, 255, 0.2);
+        color: rgba(255, 255, 255, 0.8);
+        font-weight: 600;
+        font-size: 15px;
+        padding: 13px 28px;
+        border-radius: 100px;
+        text-decoration: none;
+        transition: 0.2s;
+      }
+      .lp-root .hero.testimonials .btn-ghost {
+        padding: 12px 28px;
+        font-size: 0.95rem;
+      }
+      .lp-root .btn-ghost:hover {
+        border-color: var(--green);
+        color: var(--green);
+      }
+      .lp-root .hero-stats {
+        display: flex;
+        gap: 36px;
+        margin-top: 48px;
+        flex-wrap: wrap;
+      }
+      .lp-root .hero.seo .hero-stats {
+        gap: 32px;
+      }
+      .lp-root .hero.testimonials .hero-stats {
+        justify-content: center;
+        gap: 48px;
+        margin-top: 56px;
+      }
+      .lp-root .hstat .n {
+        font-size: 1.8rem;
+        font-weight: 900;
+        color: #fff;
+      }
+      .lp-root .hero.seo .hstat .n {
+        font-size: 1.7rem;
+      }
+      .lp-root .hstat .l {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.4);
+        margin-top: 2px;
+      }
+      .lp-root .hero-card,
+      .lp-root .impact-card {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 24px;
+        padding: 32px;
+        backdrop-filter: blur(8px);
+      }
+      .lp-root .hero-card-item {
+        padding: 16px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .lp-root .hero-card-item:last-child,
+      .lp-root .impact-row:last-child {
+        border-bottom: none;
+      }
+      .lp-root .hero-card-item .label {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.45);
+        margin-bottom: 4px;
+      }
+      .lp-root .hero-card-item .value {
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: #fff;
+      }
+      .lp-root .hero-card-item .sub {
+        font-size: 12px;
+        color: var(--green);
+        margin-top: 2px;
+      }
+      .lp-root .impact-row {
+        display: flex;
+        flex-direction: column;
+        padding: 16px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .lp-root .impact-row .lbl {
+        font-size: 11px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.4);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      .lp-root .impact-row .val {
+        font-size: 1.8rem;
+        font-weight: 900;
+        color: #fff;
+        margin-top: 4px;
+      }
+      .lp-root .impact-row .val.grad {
+        background: linear-gradient(90deg, var(--green), var(--purple));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .lp-root .impact-row .note {
+        font-size: 12px;
+        color: var(--green);
+        margin-top: 3px;
+      }
+      .lp-root .impact-row .note-plain {
+        font-size: 0.88rem;
+        color: rgba(255, 255, 255, 0.55);
+        line-height: 1.6;
+        margin-top: 6px;
+      }
+      .lp-root .lead-form {
+        background: #fff;
+        border-radius: 20px;
+        padding: 28px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      }
+      .lp-root .lead-form h3 {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 20px;
+      }
+      .lp-root .field {
+        margin-bottom: 14px;
+      }
+      .lp-root .field label {
+        display: block;
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--muted);
+        margin-bottom: 5px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      .lp-root .field input,
+      .lp-root .field select {
+        width: 100%;
+        padding: 11px 14px;
+        border: 1.5px solid var(--border);
+        border-radius: 10px;
+        font-size: 14px;
+        font-family: inherit;
+        color: var(--text);
+        transition: 0.2s;
+        background: #fff;
+      }
+      .lp-root .field input:focus,
+      .lp-root .field select:focus {
+        outline: none;
+        border-color: var(--purple);
+      }
+      .lp-root .form-btn {
+        width: 100%;
+        background: linear-gradient(135deg, var(--purple), var(--green));
+        color: #fff;
+        font-weight: 700;
+        font-size: 0.95rem;
+        padding: 13px;
+        border-radius: 10px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        text-align: center;
+        transition: 0.2s;
+      }
+      .lp-root .form-btn:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+      }
+      .lp-root .form-note {
+        font-size: 11px;
+        color: var(--muted);
+        text-align: center;
+        margin-top: 10px;
+      }
+      .lp-root .rating-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 100px;
+        padding: 10px 24px;
+        margin-bottom: 28px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #fff;
+      }
+      .lp-root .rating-stars,
+      .lp-root .review-stars,
+      .lp-root .tp-stars,
+      .lp-root .stars {
+        background: linear-gradient(90deg, #f59e0b, var(--green));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .lp-root .trust-bar {
+        background: #fafafa;
+        border-bottom: 1px solid var(--border);
+        padding: 18px 48px;
+      }
+      .lp-root .seo-page .trust-bar {
+        padding: 16px 48px;
+      }
+      .lp-root .trust-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .lp-root .seo-page .trust-inner,
+      .lp-root .charity-page .trust-inner {
+        justify-content: space-between;
+        gap: 14px;
+      }
+      .lp-root .testimonials-page .trust-inner {
+        justify-content: center;
+        gap: 24px;
+      }
+      .lp-root .trust-item {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        font-size: 13px;
+        font-weight: 500;
+        color: #555;
+      }
+      .lp-root .trust-pill {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        background: linear-gradient(135deg, rgba(108, 71, 255, 0.07), rgba(0, 200, 150, 0.07));
+        border: 1px solid rgba(108, 71, 255, 0.12);
+        border-radius: 100px;
+        padding: 7px 16px;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text);
+      }
+      .lp-root .backed-section {
+        background: #fff;
+        padding: 48px 48px 56px;
+        border-bottom: 1px solid var(--border);
+      }
+      .lp-root .backed-inner,
+      .lp-root .numbers-inner,
+      .lp-root .section-inner,
+      .lp-root .steps-inner,
+      .lp-root .why-inner,
+      .lp-root .charity-logos-inner,
+      .lp-root .video-wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .lp-root .backed-label {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        margin-bottom: 28px;
+      }
+      .lp-root .backed-logos {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .lp-root .backed-logo {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: #fff;
+        border: 1.5px solid var(--border);
+        border-radius: 12px;
+        padding: 12px 20px;
+        transition: 0.2s;
+      }
+      .lp-root .backed-logo:hover {
+        border-color: var(--purple);
+        box-shadow: 0 4px 20px rgba(108, 71, 255, 0.1);
+        transform: translateY(-1px);
+      }
+      .lp-root .backed-logo .logo-icon {
+        font-size: 18px;
+      }
+      .lp-root .backed-logo .logo-text {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--text);
+        line-height: 1.2;
+      }
+      .lp-root .backed-logo .logo-sub {
+        font-size: 10px;
+        font-weight: 500;
+        color: var(--muted);
+      }
+      .lp-root .bl-virgin .logo-text { color: #e4002b; }
+      .lp-root .bl-barclays .logo-text { color: #00aeef; }
+      .lp-root .bl-barclays .logo-sub { color: #1a1a2e; }
+      .lp-root .bl-london .logo-text { color: #e4002b; }
+      .lp-root .bl-london .logo-sub { color: #555; }
+      .lp-root .bl-reach .logo-text { color: #003087; }
+      .lp-root .bl-natwest .logo-text { color: #4b006e; }
+      .lp-root .bl-scv .logo-text { color: #1a1a2e; }
+      .lp-root .numbers-section {
+        background: linear-gradient(160deg, var(--dark) 0%, #1a0a3a 100%);
+        padding: 56px 48px;
+      }
+      .lp-root .numbers-title {
+        font-size: 11px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.4);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        margin-bottom: 32px;
+      }
+      .lp-root .numbers-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 20px;
+      }
+      .lp-root .numbers-grid .num-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 18px;
+        padding: 28px 24px;
+        position: relative;
+        overflow: hidden;
+        transition: 0.25s;
+      }
+      .lp-root .numbers-grid .num-card:hover {
+        background: rgba(255, 255, 255, 0.08);
+      }
+      .lp-root .numbers-grid .num-card::after,
+      .lp-root .card-accent,
+      .lp-root .pillar::after,
+      .lp-root .cred-card::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--purple), var(--green));
+      }
+      .lp-root .numbers-grid .num {
+        font-size: 2.4rem;
+        font-weight: 900;
+        background: linear-gradient(90deg, var(--green), var(--purple));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1;
+        margin-bottom: 8px;
+      }
+      .lp-root .numbers-grid .num-label {
+        font-size: 0.82rem;
+        color: rgba(255, 255, 255, 0.55);
+        line-height: 1.5;
+      }
+      .lp-root .section,
+      .lp-root .inst-section,
+      .lp-root .story-section,
+      .lp-root .faq-section.charity,
+      .lp-root .faq-section.seo,
+      .lp-root .cred-section,
+      .lp-root .how-section,
+      .lp-root .dark-section,
+      .lp-root .video-section {
+        padding: 88px 48px;
+      }
+      .lp-root .inst-section,
+      .lp-root .cred-section {
+        background: #fafafa;
+      }
+      .lp-root .faq-section.charity {
+        background: #fafaf9;
+      }
+      .lp-root .section-chip,
+      .lp-root .chip {
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 700;
+        padding: 4px 12px;
+        border-radius: 100px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+      .lp-root .section-chip {
+        background: #f0edff;
+        color: var(--purple);
+      }
+      .lp-root .section-chip.green,
+      .lp-root .chip.green {
+        background: rgba(0, 200, 150, 0.1);
+        color: var(--green-dark);
+      }
+      .lp-root .chip {
+        background: rgba(108, 71, 255, 0.1);
+        color: var(--purple);
+      }
+      .lp-root .steps-section .section-chip,
+      .lp-root .story-section .chip,
+      .lp-root .dark-section .chip,
+      .lp-root .faq-section.seo .chip {
+        background: rgba(0, 200, 150, 0.15);
+        color: var(--green);
+      }
+      .lp-root .how-section .chip {
+        background: rgba(108, 71, 255, 0.2);
+        color: #a78bfa;
+      }
+      .lp-root h2 {
+        font-size: clamp(1.7rem, 3vw, 2.4rem);
+        font-weight: 800;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        margin-bottom: 14px;
+      }
+      .lp-root .seo-page h2 {
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+      }
+      .lp-root .lead,
+      .lp-root .lead-text {
+        font-size: 1rem;
+        line-height: 1.75;
+      }
+      .lp-root .lead {
+        color: var(--muted);
+        max-width: 540px;
+      }
+      .lp-root .lead-text {
+        color: var(--muted);
+        max-width: 560px;
+      }
+      .lp-root .cards,
+      .lp-root .pillars,
+      .lp-root .impact-nums,
+      .lp-root .steps.startup-steps,
+      .lp-root .steps.charity-steps,
+      .lp-root .inst-grid,
+      .lp-root .faq,
+      .lp-root .faq-grid,
+      .lp-root .article-grid,
+      .lp-root .why-grid,
+      .lp-root .reviews-grid,
+      .lp-root .cred-grid,
+      .lp-root .how-cards {
+        margin-top: 48px;
+      }
+      .lp-root .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+      }
+      .lp-root .card,
+      .lp-root .pillar {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 28px;
+        transition: 0.25s;
+        position: relative;
+        overflow: hidden;
+      }
+      .lp-root .card:hover,
+      .lp-root .pillar:hover {
+        box-shadow: 0 12px 40px rgba(108, 71, 255, 0.1);
+        transform: translateY(-3px);
+      }
+      .lp-root .card-icon {
+        font-size: 28px;
+        margin-bottom: 14px;
+      }
+      .lp-root .card h3,
+      .lp-root .pillar h3,
+      .lp-root .step h3,
+      .lp-root .step-card h3,
+      .lp-root .how-card h3,
+      .lp-root .article-card h3 {
+        font-size: 1rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      .lp-root .card p,
+      .lp-root .pillar p,
+      .lp-root .step-card p,
+      .lp-root .faq-item p,
+      .lp-root .faq-card p {
+        font-size: 0.85rem;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+      .lp-root .pillar {
+        text-align: center;
+      }
+      .lp-root .pillar-icon {
+        font-size: 36px;
+        margin-bottom: 16px;
+        display: block;
+      }
+      .lp-root .impact-nums {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+        gap: 16px;
+      }
+      .lp-root .charity-num {
+        background: linear-gradient(160deg, var(--dark), #1a0a3a);
+        border-radius: 16px;
+        padding: 24px;
+        text-align: center;
+        border: 1px solid rgba(108, 71, 255, 0.2);
+      }
+      .lp-root .charity-num .big {
+        font-size: 2.2rem;
+        font-weight: 900;
+        background: linear-gradient(90deg, var(--green), var(--purple));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .lp-root .charity-num p {
+        font-size: 0.82rem;
+        color: rgba(255, 255, 255, 0.5);
+        margin-top: 6px;
+      }
+      .lp-root .steps-section,
+      .lp-root .story-section,
+      .lp-root .faq-section.seo,
+      .lp-root .how-section,
+      .lp-root .dark-section,
+      .lp-root .why-section {
+        background: linear-gradient(135deg, #0f0f1a, #1a0a3a);
+      }
+      .lp-root .steps-section h2,
+      .lp-root .story-section h2,
+      .lp-root .faq-section.seo h2,
+      .lp-root .how-section h2,
+      .lp-root .dark-section h2,
+      .lp-root .why-section h2 {
+        color: #fff;
+      }
+      .lp-root .steps.startup-steps,
+      .lp-root .steps.charity-steps,
+      .lp-root .how-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 18px;
+      }
+      .lp-root .steps.startup-steps {
+        gap: 28px;
+      }
+      .lp-root .step,
+      .lp-root .how-card,
+      .lp-root .review-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
+        padding: 28px;
+      }
+      .lp-root .step-num,
+      .lp-root .step-n {
+        background: linear-gradient(135deg, var(--purple), var(--green));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        color: #fff;
+      }
+      .lp-root .step-num {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        font-size: 1rem;
+        margin-bottom: 16px;
+      }
+      .lp-root .step p,
+      .lp-root .how-card p,
+      .lp-root .review-text,
+      .lp-root .faq-section.seo .faq-card p,
+      .lp-root .why-card p {
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .lp-root .inst-grid,
+      .lp-root .cred-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+      }
+      .lp-root .inst-card {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 24px;
+        text-align: center;
+      }
+      .lp-root .inst-icon,
+      .lp-root .cred-icon {
+        font-size: 32px;
+        margin-bottom: 12px;
+        display: block;
+      }
+      .lp-root .inst-card h4,
+      .lp-root .why-card h4,
+      .lp-root .faq-item h4,
+      .lp-root .faq-card h4 {
+        font-size: 0.9rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      .lp-root .inst-card p,
+      .lp-root .cred-label {
+        font-size: 0.8rem;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+      .lp-root .faq {
+        display: grid;
+        gap: 12px;
+      }
+      .lp-root .faq-item {
+        background: #f9f9fc;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 22px 24px;
+      }
+      .lp-root .faq-grid.charity {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 16px;
+      }
+      .lp-root .faq-grid.seo {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 14px;
+      }
+      .lp-root .faq-card {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 24px;
+        transition: 0.2s;
+      }
+      .lp-root .faq-card:hover {
+        box-shadow: 0 6px 24px rgba(108, 71, 255, 0.08);
+      }
+      .lp-root .faq-section.seo .faq-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .lp-root .faq-section.seo .faq-card:hover {
+        background: rgba(255, 255, 255, 0.08);
+        box-shadow: none;
+      }
+      .lp-root .faq-section.seo .faq-card h4 {
+        color: #fff;
+      }
+      .lp-root .charity-logos {
+        background: #fff;
+        border-bottom: 1px solid #f0f0f5;
+        padding: 52px 48px;
+      }
+      .lp-root .charity-logos-label {
+        text-align: center;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #9ca3af;
+        margin-bottom: 36px;
+      }
+      .lp-root .charity-logo-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+      }
+      .lp-root .cl-card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 16px;
+        padding: 16px 24px;
+        min-width: 160px;
+        height: 80px;
+        border: 1px solid #e5e7eb;
+        background: #fff;
+        transition: box-shadow 0.2s, transform 0.2s;
+      }
+      .lp-root .cl-card:hover {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        transform: translateY(-2px);
+      }
+      .lp-root .cl-card img {
+        max-height: 44px;
+        max-width: 140px;
+        object-fit: contain;
+      }
+      .lp-root .cl-name {
+        font-size: 15px;
+        font-weight: 800;
+        letter-spacing: -0.3px;
+      }
+      .lp-root .cl-sub {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        opacity: 0.75;
+        margin-top: 1px;
+      }
+      .lp-root .cl-eman {
+        background: #f0fdf9;
+        border-color: #a7f3d0;
+      }
+      .lp-root .cl-eman .cl-name,
+      .lp-root .cl-eman .cl-sub {
+        color: #059669;
+      }
+      .lp-root .cl-nwaqf {
+        background: #374151;
+        border-color: #4b5563;
+      }
+      .lp-root .cl-human {
+        background: #6d22c7;
+        border-color: #5b1ca6;
+      }
+      .lp-root .cl-human .cl-name {
+        color: #fff;
+      }
+      .lp-root .cl-human .cl-sub {
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .lp-root .mission-banner {
+        background: linear-gradient(135deg, var(--purple), var(--green-dark));
+        color: #fff;
+        padding: 72px 48px;
+        text-align: center;
+      }
+      .lp-root .mission-banner h2 {
+        font-size: clamp(1.4rem, 2.5vw, 2rem);
+        font-weight: 800;
+        max-width: 680px;
+        margin: 0 auto 16px;
+        line-height: 1.35;
+        letter-spacing: -0.01em;
+      }
+      .lp-root .mission-banner p {
+        font-size: 1rem;
+        opacity: 0.85;
+        max-width: 540px;
+        margin: 0 auto;
+        line-height: 1.75;
+      }
+      .lp-root .story-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 24px;
+        padding: 40px;
+        margin-top: 48px;
+        position: relative;
+        overflow: hidden;
+      }
+      .lp-root .story-card::before {
+        content: "“";
+        font-size: 120px;
+        color: rgba(108, 71, 255, 0.15);
+        font-family: Georgia, serif;
+        position: absolute;
+        top: -10px;
+        left: 20px;
+        line-height: 1;
+      }
+      .lp-root .stars {
+        font-size: 1.1rem;
+        margin-bottom: 16px;
+        display: block;
+      }
+      .lp-root blockquote {
+        font-size: 0.95rem;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.75);
+        line-height: 1.8;
+        margin-bottom: 24px;
+        position: relative;
+        z-index: 1;
+        padding-left: 4px;
+      }
+      .lp-root .author,
+      .lp-root .reviewer {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .lp-root .avatar,
+      .lp-root .rev-avatar {
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--purple), var(--green));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        color: #fff;
+        flex-shrink: 0;
+      }
+      .lp-root .avatar {
+        width: 48px;
+        height: 48px;
+        font-size: 1.1rem;
+      }
+      .lp-root .rev-avatar {
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
+      }
+      .lp-root .author-name,
+      .lp-root .rev-name {
+        font-weight: 700;
+        color: #fff;
+      }
+      .lp-root .author-name {
+        font-size: 0.95rem;
+      }
+      .lp-root .author-role,
+      .lp-root .rev-meta {
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.45);
+      }
+      .lp-root .verified-tag,
+      .lp-root .verified {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        background: rgba(0, 200, 150, 0.15);
+        color: var(--green);
+        font-size: 10.5px;
+        font-weight: 600;
+        padding: 2px 8px;
+        border-radius: 100px;
+        margin-top: 4px;
+      }
+      .lp-root .story-note {
+        text-align: center;
+        color: rgba(255, 255, 255, 0.4);
+        margin-top: 32px;
+        font-size: 0.9rem;
+      }
+      .lp-root .step-card {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 28px;
+        position: relative;
+        overflow: hidden;
+        transition: 0.25s;
+      }
+      .lp-root .step-card:hover {
+        box-shadow: 0 12px 40px rgba(108, 71, 255, 0.1);
+        transform: translateY(-2px);
+      }
+      .lp-root .step-card::before {
+        content: counter(stepcount);
+        position: absolute;
+        top: -14px;
+        left: 24px;
+        width: 28px;
+        height: 28px;
+        background: linear-gradient(135deg, var(--purple), var(--green));
+        color: #fff;
+        font-weight: 800;
+        font-size: 0.8rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .lp-root .steps.charity-steps {
+        counter-reset: stepcount;
+      }
+      .lp-root .eligibility-bar {
+        border-radius: 14px;
+        padding: 18px 24px;
+        margin-top: 32px;
+        font-size: 0.88rem;
+        font-weight: 500;
+      }
+      .lp-root .eligibility-bar.charity {
+        background: linear-gradient(135deg, rgba(108, 71, 255, 0.08), rgba(0, 200, 150, 0.08));
+        border: 1px solid rgba(108, 71, 255, 0.15);
+        color: var(--purple);
+      }
+      .lp-root .eligibility-bar.testimonials {
+        background: rgba(0, 200, 150, 0.1);
+        border: 1px solid rgba(0, 200, 150, 0.2);
+        color: var(--green);
+      }
+      .lp-root .article-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+      }
+      .lp-root .article-card {
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        overflow: hidden;
+        background: #fff;
+        transition: 0.25s;
+        position: relative;
+      }
+      .lp-root .article-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--purple), var(--green));
+      }
+      .lp-root .article-card:hover {
+        box-shadow: 0 10px 40px rgba(108, 71, 255, 0.1);
+        transform: translateY(-2px);
+      }
+      .lp-root .article-badge {
+        display: inline-block;
+        background: rgba(108, 71, 255, 0.1);
+        color: var(--purple);
+        font-size: 11px;
+        font-weight: 700;
+        padding: 4px 10px;
+        border-radius: 100px;
+        margin: 20px 20px 10px;
+      }
+      .lp-root .article-card h3 {
+        padding: 0 20px 10px;
+        line-height: 1.45;
+      }
+      .lp-root .article-card p {
+        font-size: 0.85rem;
+        color: var(--muted);
+        padding: 0 20px 20px;
+        line-height: 1.65;
+      }
+      .lp-root .article-meta {
+        font-size: 11px;
+        color: #94a3b8;
+        padding: 12px 20px;
+        border-top: 1px solid #f1f5f9;
+      }
+      .lp-root .why-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 18px;
+      }
+      .lp-root .why-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 18px;
+        padding: 24px;
+        transition: 0.25s;
+      }
+      .lp-root .why-card:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(108, 71, 255, 0.3);
+      }
+      .lp-root .why-card .icon,
+      .lp-root .how-card .icon {
+        font-size: 26px;
+        margin-bottom: 12px;
+      }
+      .lp-root .compare-wrap {
+        overflow-x: auto;
+        margin-top: 44px;
+        border-radius: 16px;
+        border: 1px solid var(--border);
+      }
+      .lp-root table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.875rem;
+        min-width: 680px;
+      }
+      .lp-root thead tr {
+        background: linear-gradient(135deg, var(--dark), #1a0a3a);
+        color: #fff;
+      }
+      .lp-root thead th {
+        padding: 14px 18px;
+        text-align: left;
+        font-weight: 600;
+        font-size: 0.82rem;
+      }
+      .lp-root tbody tr:nth-child(even) {
+        background: #fafafa;
+      }
+      .lp-root tbody td {
+        padding: 13px 18px;
+        border-bottom: 1px solid var(--border);
+      }
+      .lp-root tbody td:first-child {
+        font-weight: 600;
+      }
+      .lp-root .yes {
+        color: var(--green-dark);
+        font-weight: 700;
+      }
+      .lp-root .no {
+        color: #ef4444;
+      }
+      .lp-root .best-col {
+        color: var(--purple);
+        font-weight: 700;
+      }
+      .lp-root .tp-widget {
+        background: linear-gradient(135deg, #00b67a, #007f56);
+        border-radius: 24px;
+        padding: 44px;
+        margin-top: 44px;
+        color: #fff;
+        text-align: center;
+      }
+      .lp-root .tp-name {
+        font-size: 1.1rem;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        margin-bottom: 4px;
+      }
+      .lp-root .tp-score {
+        font-size: 3.8rem;
+        font-weight: 900;
+        margin: 12px 0 6px;
+        letter-spacing: -2px;
+      }
+      .lp-root .tp-stars {
+        font-size: 1.8rem;
+        margin-bottom: 8px;
+      }
+      .lp-root .tp-label {
+        font-size: 0.88rem;
+        opacity: 0.85;
+        margin-bottom: 28px;
+      }
+      .lp-root .tp-bars {
+        max-width: 360px;
+        margin: 0 auto;
+      }
+      .lp-root .tp-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 7px;
+        font-size: 12.5px;
+      }
+      .lp-root .tp-row .lbl {
+        width: 52px;
+        text-align: right;
+        opacity: 0.85;
+      }
+      .lp-root .tp-bar-bg {
+        flex: 1;
+        height: 7px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 100px;
+        overflow: hidden;
+      }
+      .lp-root .tp-bar-fill {
+        height: 100%;
+        border-radius: 100px;
+        background: #fff;
+      }
+      .lp-root .tp-row .pct {
+        width: 32px;
+        font-weight: 600;
+        opacity: 0.85;
+      }
+      .lp-root .tp-cta {
+        display: inline-block;
+        margin-top: 24px;
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: #fff;
+        padding: 10px 24px;
+        border-radius: 100px;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 600;
+        transition: 0.2s;
+      }
+      .lp-root .tp-cta:hover {
+        background: rgba(255, 255, 255, 0.25);
+      }
+      .lp-root .reviews-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 18px;
+      }
+      .lp-root .review-card {
+        transition: 0.25s;
+        position: relative;
+        overflow: hidden;
+      }
+      .lp-root .review-card:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(108, 71, 255, 0.3);
+        transform: translateY(-2px);
+      }
+      .lp-root .review-card.featured {
+        border: 1px solid rgba(0, 200, 150, 0.4);
+      }
+      .lp-root .featured-label {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: linear-gradient(135deg, var(--purple), var(--green));
+        color: #fff;
+        font-size: 11px;
+        font-weight: 700;
+        padding: 5px 14px;
+        border-radius: 0 18px 0 12px;
+      }
+      .lp-root .review-stars {
+        font-size: 0.95rem;
+        margin-bottom: 14px;
+      }
+      .lp-root .review-text {
+        font-size: 0.875rem;
+        line-height: 1.75;
+        margin-bottom: 20px;
+        font-style: italic;
+      }
+      .lp-root .cred-card {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 26px;
+        text-align: center;
+        transition: 0.25s;
+        position: relative;
+        overflow: hidden;
+      }
+      .lp-root .cred-card:hover {
+        box-shadow: 0 8px 32px rgba(108, 71, 255, 0.1);
+        transform: translateY(-2px);
+      }
+      .lp-root .cred-num {
+        font-size: 1.9rem;
+        font-weight: 900;
+        background: linear-gradient(135deg, var(--purple), var(--green));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 4px;
+      }
+      .lp-root .step-n {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        font-size: 0.88rem;
+        margin: 0 auto 14px;
+      }
+      .lp-root .how-card {
+        text-align: center;
+        transition: 0.25s;
+      }
+      .lp-root .how-card:hover {
+        background: rgba(255, 255, 255, 0.08);
+      }
+      .lp-root .video-section {
+        background: linear-gradient(135deg, rgba(108, 71, 255, 0.06), rgba(0, 200, 150, 0.06));
+      }
+      .lp-root .video-wrap {
+        max-width: 740px;
+        text-align: center;
+      }
+      .lp-root .video-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        background: linear-gradient(135deg, var(--purple), var(--green-dark));
+        color: #fff;
+        border-radius: 20px;
+        padding: 60px 40px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: 0.2s;
+        margin-top: 40px;
+      }
+      .lp-root .video-btn:hover {
+        opacity: 0.92;
+        transform: translateY(-2px);
+        box-shadow: 0 12px 48px rgba(108, 71, 255, 0.3);
+      }
+      .lp-root .play {
+        width: 64px;
+        height: 64px;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+      }
+      .lp-root .video-btn strong {
+        font-size: 1.1rem;
+        font-weight: 700;
+      }
+      .lp-root .video-btn span {
+        font-size: 0.85rem;
+        opacity: 0.75;
+      }
+      .lp-root .cta-section {
+        text-align: center;
+        padding: 88px 48px;
+        position: relative;
+        overflow: hidden;
+      }
+      .lp-root .cta-section.startup,
+      .lp-root .cta-section.seo {
+        background: linear-gradient(135deg, var(--purple), var(--green-dark));
+      }
+      .lp-root .cta-section.charity,
+      .lp-root .cta-section.testimonials {
+        background: linear-gradient(160deg, var(--dark) 0%, #1a0a3a 50%, #0a2a1a 100%);
+      }
+      .lp-root .cta-glow {
+        position: absolute;
+        width: 600px;
+        height: 600px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(108, 71, 255, 0.2) 0%, transparent 70%);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+      }
+      .lp-root .cta-section h2 {
+        color: #fff;
+        font-size: 2rem;
+        margin-bottom: 14px;
+        letter-spacing: -0.02em;
+        position: relative;
+        z-index: 1;
+      }
+      .lp-root .seo-page .cta-section h2 {
+        font-size: 1.9rem;
+      }
+      .lp-root .cta-section p {
+        max-width: 500px;
+        margin: 0 auto 32px;
+        line-height: 1.75;
+        position: relative;
+        z-index: 1;
+      }
+      .lp-root .cta-section.startup p,
+      .lp-root .cta-section.seo p {
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .lp-root .cta-section.charity p,
+      .lp-root .cta-section.testimonials p {
+        color: rgba(255, 255, 255, 0.65);
+      }
+      .lp-root .btn-white {
+        background: #fff;
+        color: var(--purple);
+        font-weight: 800;
+        padding: 16px 36px;
+        border-radius: 100px;
+        text-decoration: none;
+        font-size: 1rem;
+        display: inline-block;
+        transition: 0.2s;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+        position: relative;
+        z-index: 1;
+      }
+      .lp-root .testimonials-page .btn-white {
+        padding: 17px 38px;
+        font-size: 1.02rem;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+      }
+      .lp-root .btn-white:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+      }
+      .lp-root .cta-note {
+        color: rgba(255, 255, 255, 0.35);
+        font-size: 12.5px;
+        margin-top: 16px;
+        position: relative;
+        z-index: 1;
+      }
+      .lp-root footer {
+        background: #080810;
+        padding: 40px 48px;
+        text-align: center;
+      }
+      .lp-root .footer-social {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+      .lp-root .footer-social a {
+        background: rgba(255, 255, 255, 0.06);
+        color: rgba(255, 255, 255, 0.55);
+        font-size: 13px;
+        padding: 7px 16px;
+        border-radius: 100px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: 0.2s;
+      }
+      .lp-root .footer-social a:hover {
+        color: #fff;
+        background: rgba(255, 255, 255, 0.1);
+      }
+      .lp-root footer p {
+        font-size: 11.5px;
+        color: rgba(255, 255, 255, 0.28);
+        line-height: 1.7;
+        max-width: 820px;
+        margin: 0 auto;
+      }
+      @media (max-width: 768px) {
+        .lp-root .version-toolbar {
+          padding: 0 16px;
+        }
+        .lp-root .vt-label {
+          display: none;
+        }
+        .lp-root .vt-link {
+          padding: 5px 10px;
+          font-size: 11px;
+        }
+        .lp-root nav {
+          padding: 0 20px;
+        }
+        .lp-root .nav-links {
+          display: none;
+        }
+        .lp-root .hero.startup,
+        .lp-root .hero.charity,
+        .lp-root .hero.seo,
+        .lp-root .hero.testimonials {
+          padding: 60px 20px;
+          min-height: auto;
+        }
+        .lp-root .hero-inner.startup,
+        .lp-root .hero-inner.charity,
+        .lp-root .hero-inner.seo {
+          grid-template-columns: 1fr;
+          gap: 36px;
+        }
+        .lp-root .impact-card {
+          display: none;
+        }
+        .lp-root .section,
+        .lp-root .inst-section,
+        .lp-root .story-section,
+        .lp-root .faq-section.charity,
+        .lp-root .faq-section.seo,
+        .lp-root .why-section,
+        .lp-root .dark-section,
+        .lp-root .how-section,
+        .lp-root .cred-section,
+        .lp-root .video-section,
+        .lp-root .cta-section,
+        .lp-root .mission-banner {
+          padding: 60px 20px;
+        }
+        .lp-root .charity-logos {
+          padding: 52px 20px;
+        }
+        .lp-root .trust-bar {
+          padding: 16px 20px;
+        }
+        .lp-root .faq-grid.seo {
+          grid-template-columns: 1fr;
+        }
+        .lp-root footer {
+          padding: 32px 20px;
+        }
+      }
+    
