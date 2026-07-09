@@ -1,5 +1,7 @@
 import "reflect-metadata";
 import dns from "node:dns";
+import type { Handler } from "aws-lambda";
+import { configure as serverlessExpress } from "@vendia/serverless-express";
 import { ValidationPipe } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
 import { ConfigService } from "@nestjs/config";
@@ -11,11 +13,10 @@ import { AppModule } from "./app.module.js";
 
 dns.setServers(["1.1.1.1", "8.8.8.8"]);
 
-async function bootstrap() {
-  const app = await NestFactory.create<NestExpressApplication>(
-    AppModule,
-    new ExpressAdapter(),
-  );
+let cachedApp: NestExpressApplication | null = null;
+let cachedServer: Handler | null = null;
+
+async function configureApp(app: NestExpressApplication) {
   const configService = app.get<ConfigService<AppEnvironment, true>>(ConfigService);
 
   app.enableCors({
@@ -30,9 +31,42 @@ async function bootstrap() {
   );
   app.useGlobalFilters(new AllExceptionsFilter());
   app.useGlobalInterceptors(new SuccessResponseInterceptor());
-
-  const port = configService.get("PORT", { infer: true });
-  await app.listen(port);
 }
 
-void bootstrap();
+export async function createApp() {
+  if (cachedApp) {
+    return cachedApp;
+  }
+
+  const app = await NestFactory.create<NestExpressApplication>(
+    AppModule,
+    new ExpressAdapter(),
+  );
+
+  await configureApp(app);
+  await app.init();
+
+  cachedApp = app;
+
+  return app;
+}
+
+async function getServer() {
+  if (cachedServer) {
+    return cachedServer;
+  }
+
+  const app = await createApp();
+  const expressApp = app.getHttpAdapter().getInstance();
+
+  cachedServer = serverlessExpress({
+    app: expressApp,
+  }) as Handler;
+
+  return cachedServer;
+}
+
+export const handler: Handler = async (event, context, callback) => {
+  const server = await getServer();
+  return server(event, context, callback);
+};
