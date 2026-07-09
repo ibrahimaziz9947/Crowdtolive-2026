@@ -16,7 +16,8 @@
       "dest": "apps/api/src/main.ts"
     },
     {
-      "handle": "filesystem"
+      "src": "/(.*)",
+      "dest": "apps/web/$1"
     }
   ]
 }
