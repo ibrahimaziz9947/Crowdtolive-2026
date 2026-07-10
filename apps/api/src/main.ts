@@ -9,7 +9,9 @@ import { AllExceptionsFilter } from "./common/filters/all-exceptions.filter.js";
 import { SuccessResponseInterceptor } from "./common/interceptors/success-response.interceptor.js";
 import { AppModule } from "./app.module.js";
 
-dns.setServers(["1.1.1.1", "8.8.8.8"]);
+if (process.env.NODE_ENV === "development" && process.env.VERCEL !== "1") {
+  dns.setServers(["1.1.1.1", "8.8.8.8"]);
+}
 
 let cachedApp: NestExpressApplication | null = null;
 
