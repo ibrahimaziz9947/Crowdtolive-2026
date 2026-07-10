@@ -10,6 +10,7 @@ export function buildMongooseOptions(
     dbName: "crowdtolive",
     autoIndex: false,
     lazyConnection: false,
+    family: 4,
     minPoolSize: 0,
     maxPoolSize: 5,
     serverSelectionTimeoutMS: 5000,
