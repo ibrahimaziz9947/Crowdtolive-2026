@@ -11,9 +11,19 @@ import type {
   RegistrationQualificationState,
 } from "../types";
 import { initialRegistrationQualificationState } from "../types";
+import { isValidPhoneNumber, phoneCountryOptions } from "../phone";
+import { CountrySelect } from "./country-select";
 import { QualificationFooter } from "./qualification-footer";
 import styles from "./qualification.module.css";
 import { SearchSelect } from "./search-select";
+
+type IntroState = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneCountry: string;
+  phoneNumber: string;
+};
 
 type StepKey =
   | "propertyFound"
@@ -140,6 +150,15 @@ function formatApiError(raw: unknown): string {
 
 export function RegistrationWizard() {
   const router = useRouter();
+  const [introComplete, setIntroComplete] = useState(false);
+  const [introSubmitted, setIntroSubmitted] = useState(false);
+  const [intro, setIntro] = useState<IntroState>({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneCountry: "GB",
+    phoneNumber: "",
+  });
   const [state, setState] = useState<RegistrationQualificationState>(initialRegistrationQualificationState);
   const [stepIndex, setStepIndex] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -157,6 +176,32 @@ export function RegistrationWizard() {
   const step = steps[stepIndex];
   const total = steps.length;
   const isLast = stepIndex === total - 1;
+
+  const introErrors = useMemo(() => {
+    if (!introSubmitted) {
+      return {
+        firstName: "",
+        lastName: "",
+        email: "",
+        phoneNumber: "",
+      };
+    }
+
+    return {
+      firstName: intro.firstName.trim() ? "" : "Please complete this required field.",
+      lastName: intro.lastName.trim() ? "" : "Please complete this required field.",
+      email: intro.email.trim()
+        ? isEmail(intro.email)
+          ? ""
+          : "Please enter a valid email address."
+        : "Please complete this required field.",
+      phoneNumber: intro.phoneNumber.trim()
+        ? isValidPhoneNumber(intro.phoneCountry, intro.phoneNumber)
+          ? ""
+          : "This phone number is either invalid or is in the wrong format."
+        : "Please complete this required field.",
+    };
+  }, [intro, introSubmitted]);
 
   const validationError = useMemo(() => {
     if (!submittedSteps[step]) return "";
@@ -179,6 +224,24 @@ export function RegistrationWizard() {
         return isEmail(state.email) ? "" : "Please enter a valid email address.";
     }
   }, [state, step, submittedSteps]);
+
+  const onIntroNext = () => {
+    setIntroSubmitted(true);
+
+    if (
+      !intro.firstName.trim() ||
+      !intro.lastName.trim() ||
+      !intro.email.trim() ||
+      !isEmail(intro.email) ||
+      !intro.phoneNumber.trim() ||
+      !isValidPhoneNumber(intro.phoneCountry, intro.phoneNumber)
+    ) {
+      return;
+    }
+
+    setState((prev) => ({ ...prev, email: intro.email.trim() }));
+    setIntroComplete(true);
+  };
 
   const markSubmitted = () =>
     setSubmittedSteps((prev) => ({
@@ -287,7 +350,98 @@ export function RegistrationWizard() {
         <img src="/homepage/logo.png" alt="CrowdToLive by Bayuti" className={styles.logo} />
       </header>
       <main className={styles.main}>
-        {step === "propertyFound" ? (
+        {!introComplete ? (
+          <StepFrame title="Let's get started, tell us a bit about you.">
+            <Field label="First Name*" error={introErrors.firstName}>
+              <input
+                className={styles.control}
+                value={intro.firstName}
+                placeholder=""
+                autoComplete="given-name"
+                onChange={(event) =>
+                  setIntro((prev) => ({
+                    ...prev,
+                    firstName: event.target.value,
+                  }))
+                }
+              />
+            </Field>
+            <div style={{ height: 14 }} />
+            <Field label="Last Name*" error={introErrors.lastName}>
+              <input
+                className={styles.control}
+                value={intro.lastName}
+                placeholder=""
+                autoComplete="family-name"
+                onChange={(event) =>
+                  setIntro((prev) => ({
+                    ...prev,
+                    lastName: event.target.value,
+                  }))
+                }
+              />
+            </Field>
+            <div style={{ height: 14 }} />
+            <Field label="Email*" error={introErrors.email}>
+              <input
+                className={styles.control}
+                value={intro.email}
+                placeholder=""
+                inputMode="email"
+                autoComplete="email"
+                onChange={(event) =>
+                  setIntro((prev) => ({
+                    ...prev,
+                    email: event.target.value,
+                  }))
+                }
+              />
+            </Field>
+            <div style={{ height: 14 }} />
+            <Field label="Phone Number*" error={introErrors.phoneNumber}>
+              <div className={styles.introPhoneRow}>
+                <CountrySelect<string>
+                  placeholder="Country"
+                  value={intro.phoneCountry}
+                  options={phoneCountryOptions}
+                  onChange={(next) =>
+                    setIntro((prev) => ({
+                      ...prev,
+                      phoneCountry: next,
+                    }))
+                  }
+                />
+                <input
+                  className={styles.control}
+                  value={intro.phoneNumber}
+                  placeholder=""
+                  inputMode="tel"
+                  autoComplete="tel"
+                  onChange={(event) =>
+                    setIntro((prev) => ({
+                      ...prev,
+                      phoneNumber: event.target.value,
+                    }))
+                  }
+                />
+              </div>
+            </Field>
+
+            <div className={styles.introConsent}>
+              By clicking continue you agree that we will collect and use your personal data to respond to your enquiry
+              and provide you with information relevant to your request.
+            </div>
+
+            <div className={styles.navRow}>
+              <span />
+              <button type="button" className={styles.btn} onClick={onIntroNext}>
+                Continue
+              </button>
+            </div>
+          </StepFrame>
+        ) : null}
+
+        {introComplete && step === "propertyFound" ? (
           <StepFrame titleTop="Takes about 1 minute to complete" title="Have you already found a property to buy?">
             <Field error={validationError}>
               <SearchSelect<PropertyFoundAnswer>
@@ -310,7 +464,7 @@ export function RegistrationWizard() {
           </StepFrame>
         ) : null}
 
-        {step === "deposit" ? (
+        {introComplete && step === "deposit" ? (
           <StepFrame title="How much deposit do you currently have?">
             <Field error={validationError}>
               <input
@@ -333,7 +487,7 @@ export function RegistrationWizard() {
           </StepFrame>
         ) : null}
 
-        {step === "city" ? (
+        {introComplete && step === "city" ? (
           <StepFrame title="Which city are you planning to buy a property in?">
             <Field label="City*" error={validationError}>
               <input
@@ -355,7 +509,7 @@ export function RegistrationWizard() {
           </StepFrame>
         ) : null}
 
-        {step === "propertyPrice" ? (
+        {introComplete && step === "propertyPrice" ? (
           <StepFrame title="What's your property price?">
             <Field label="Property Price*" error={validationError}>
               <input
@@ -378,7 +532,7 @@ export function RegistrationWizard() {
           </StepFrame>
         ) : null}
 
-        {step === "jointApplication" ? (
+        {introComplete && step === "jointApplication" ? (
           <StepFrame title="Is this a joint application?">
             <Field label="Select an option*" error={validationError}>
               <SearchSelect<JointApplicationAnswer>
@@ -403,7 +557,7 @@ export function RegistrationWizard() {
           </StepFrame>
         ) : null}
 
-        {step === "annualSalary" ? (
+        {introComplete && step === "annualSalary" ? (
           <StepFrame title="What is your annual salary range?">
             <Field label="Annual Salary*" error={validationError}>
               <input
@@ -426,7 +580,7 @@ export function RegistrationWizard() {
           </StepFrame>
         ) : null}
 
-        {step === "email" ? (
+        {introComplete && step === "email" ? (
           <StepFrame title="Confirm Your Email">
             <Field label="Email*" error={validationError}>
               <input

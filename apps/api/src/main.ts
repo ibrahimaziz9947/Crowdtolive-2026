@@ -18,9 +18,42 @@ let cachedServer: Handler | null = null;
 
 async function configureApp(app: NestExpressApplication) {
   const configService = app.get<ConfigService<AppEnvironment, true>>(ConfigService);
+  const nodeEnv = configService.get("NODE_ENV", { infer: true });
+  const corsOriginRaw = configService.get("CORS_ORIGIN", { infer: true });
+  const allowedOrigins = corsOriginRaw
+    .split(",")
+    .map((item) => item.trim())
+    .filter(Boolean);
 
   app.enableCors({
-    origin: configService.get("CORS_ORIGIN", { infer: true }),
+    origin: (origin, callback) => {
+      if (!origin) {
+        callback(null, true);
+        return;
+      }
+
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true);
+        return;
+      }
+
+      if (nodeEnv === "development") {
+        try {
+          const url = new URL(origin);
+          const isLocalhost =
+            url.hostname === "localhost" || url.hostname === "127.0.0.1" || url.hostname === "::1";
+          if (isLocalhost) {
+            callback(null, true);
+            return;
+          }
+        } catch {
+          callback(null, false);
+          return;
+        }
+      }
+
+      callback(null, false);
+    },
     credentials: true,
   });
   app.useGlobalPipes(

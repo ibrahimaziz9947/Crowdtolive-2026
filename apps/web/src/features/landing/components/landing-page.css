@@ -286,6 +286,26 @@
         line-height: 1.75;
         margin-bottom: 36px;
       }
+      .lp-root .tag-row {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 18px 0 26px;
+      }
+      .lp-root .tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border-radius: 100px;
+        padding: 7px 14px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 1.1;
+      }
       .lp-root .hero.seo p.hero-sub,
       .lp-root .hero.testimonials p {
         font-size: 1.02rem;
@@ -911,6 +931,10 @@
       .lp-root .why-card p {
         color: rgba(255, 255, 255, 0.5);
       }
+      .lp-root .how-card h3,
+      .lp-root .why-card h4 {
+        color: #fff;
+      }
       .lp-root .inst-grid,
       .lp-root .cred-grid {
         display: grid;
@@ -1279,7 +1303,7 @@
       }
       .lp-root .why-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 18px;
       }
       .lp-root .why-card {
@@ -1711,6 +1735,16 @@
         }
         .lp-root footer {
           padding: 32px 20px;
+        }
+      }
+      @media (max-width: 1024px) {
+        .lp-root .why-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+      @media (max-width: 640px) {
+        .lp-root .why-grid {
+          grid-template-columns: 1fr;
         }
       }
     

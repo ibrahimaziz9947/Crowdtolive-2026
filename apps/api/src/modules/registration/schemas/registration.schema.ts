@@ -3,6 +3,8 @@ import type { HydratedDocument } from "mongoose";
 
 export enum RegistrationStatus {
   NOT_QUALIFIED = "NOT_QUALIFIED",
+  QUALIFIED = "QUALIFIED",
+  PENDING = "PENDING",
 }
 
 @Schema({
@@ -47,3 +49,7 @@ export type RegistrationDocument = HydratedDocument<Registration>;
 
 export const RegistrationSchema = SchemaFactory.createForClass(Registration);
 
+RegistrationSchema.index({ createdAt: -1 });
+RegistrationSchema.index({ status: 1, createdAt: -1 });
+RegistrationSchema.index({ email: 1 });
+RegistrationSchema.index({ city: 1 });
