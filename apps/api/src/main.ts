@@ -1,7 +1,5 @@
 import "reflect-metadata";
 import dns from "node:dns";
-import type { Handler } from "aws-lambda";
-import { configure as serverlessExpress } from "@vendia/serverless-express";
 import { ValidationPipe } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
 import { ConfigService } from "@nestjs/config";
@@ -14,7 +12,6 @@ import { AppModule } from "./app.module.js";
 dns.setServers(["1.1.1.1", "8.8.8.8"]);
 
 let cachedApp: NestExpressApplication | null = null;
-let cachedServer: Handler | null = null;
 
 async function configureApp(app: NestExpressApplication) {
   const configService = app.get<ConfigService<AppEnvironment, true>>(ConfigService);
@@ -83,23 +80,3 @@ export async function createApp() {
 
   return app;
 }
-
-async function getServer() {
-  if (cachedServer) {
-    return cachedServer;
-  }
-
-  const app = await createApp();
-  const expressApp = app.getHttpAdapter().getInstance();
-
-  cachedServer = serverlessExpress({
-    app: expressApp,
-  }) as Handler;
-
-  return cachedServer;
-}
-
-export const handler: Handler = async (event, context, callback) => {
-  const server = await getServer();
-  return server(event, context, callback);
-};
