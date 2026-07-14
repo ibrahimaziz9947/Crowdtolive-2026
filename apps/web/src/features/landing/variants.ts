@@ -41,7 +41,7 @@ const navBase: LandingNavConfig = {
   links: [
     { label: "Home", href: "https://crowdtolive.bayuti.com", external: true },
     { label: "Homebuyer Registration", href: "/register" },
-    { label: "Property Finder", href: "https://crowdtolive.bayuti.com", external: true },
+    { label: "Bayuti Finder", href: "/landing/bayuti-finder" },
     { label: "Amana – Home Deposit Builder", href: "/landing/amana-home-deposit-builder" },
     { label: "FAQ", href: "/#faq" },
     { label: "Contact Us", href: "/#contact" },
