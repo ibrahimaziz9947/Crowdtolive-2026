@@ -270,7 +270,12 @@ export const landingCharity: LandingPageConfig = {
       type: "charityLogos",
       label: "Charity and Waqf Partners",
       items: [
-        { type: "text", name: "Eman Legacy", subtitle: "Partner", tone: "emerald" },
+        {
+          type: "image",
+          src: "/partners/eman-legacy.svg",
+          alt: "Eman Legacy",
+          className: "max-h-12 max-w-[168px]",
+        },
         {
           type: "image",
           src: "https://nzf.org.uk/wp-content/uploads/2020/02/Logo.svg",
@@ -292,7 +297,12 @@ export const landingCharity: LandingPageConfig = {
           src: "https://www.crisis.org.uk/Content/images/logo_crisis_red_2023.png",
           alt: "Crisis",
         },
-        { type: "text", name: "Human Appeal", subtitle: "Partner", tone: "purple" },
+        {
+          type: "image",
+          src: "/partners/human-appeal.svg.png",
+          alt: "Human Appeal",
+          className: "max-h-14 max-w-[92px]",
+        },
       ],
     },
     {
