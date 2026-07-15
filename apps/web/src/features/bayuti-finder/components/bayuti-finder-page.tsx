@@ -32,7 +32,6 @@ type CheckContactResponse = {
 };
 
 const logoUrl = "https://finder.bayuti.com/assets/bayuti-finder-logo-Crq88YOm.png";
-const qualificationUrl = "https://crowdtolive.bayuti.com/";
 
 function toNumber(value: number | string | null | undefined) {
   const parsed = Number(value ?? 0);
@@ -178,9 +177,9 @@ export function BayutiFinderPage() {
                 </div>
 
                 <div className={styles.secondaryAction}>
-                  <a href={qualificationUrl} target="_blank" rel="noopener noreferrer" className={styles.ghostButton}>
+                  <Link href="/" className={styles.ghostButton}>
                     Complete your details first
-                  </a>
+                  </Link>
                 </div>
               </form>
             </section>
@@ -196,9 +195,9 @@ export function BayutiFinderPage() {
                 complete the step below before proceeding.
               </p>
               <div className={styles.resultActions}>
-                <a href={qualificationUrl} target="_blank" rel="noopener noreferrer" className={styles.secondaryButton}>
+                <Link href="/" className={styles.secondaryButton}>
                   Complete Qualification Form
-                </a>
+                </Link>
                 <button type="button" className={styles.mutedButton} onClick={resetToAuth}>
                   Try a different email
                 </button>
@@ -216,9 +215,9 @@ export function BayutiFinderPage() {
                 alternative financing eligibility.
               </p>
               <div className={styles.resultActions}>
-                <a href={qualificationUrl} target="_blank" rel="noopener noreferrer" className={styles.secondaryButton}>
+                <Link href="/" className={styles.secondaryButton}>
                   Complete Qualification Form
-                </a>
+                </Link>
                 <button type="button" className={styles.mutedButton} onClick={resetToAuth}>
                   Try a different email
                 </button>
