@@ -222,7 +222,7 @@ export function AmanaLandingPage() {
                 Invest in properties
               </a>
               <a href="#register" className={styles.btnPrimary}>
-                Start saving
+                Amana
               </a>
             </div>
 
@@ -265,7 +265,7 @@ export function AmanaLandingPage() {
               Invest in properties
             </a>
             <a href="#register" className={styles.mobBtnPrimary} onClick={() => setMobileOpen(false)}>
-              Start saving
+              Amana
             </a>
           </div>
         </div>
