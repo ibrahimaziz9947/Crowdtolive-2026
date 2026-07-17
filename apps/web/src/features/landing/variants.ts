@@ -44,7 +44,7 @@ const navBase: LandingNavConfig = {
     { label: "Bayuti Finder", href: "/landing/bayuti-finder" },
     { label: "Amana – Home Deposit Builder", href: "/landing/amana-home-deposit-builder" },
     { label: "FAQ", href: "/#faq" },
-    { label: "Contact Us", href: "/#contact" },
+    { label: "Contact Us", href: "/contact" },
   ],
   secondaryCta: {
     label: "Invest in Properties",
