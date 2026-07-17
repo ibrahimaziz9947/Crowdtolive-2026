@@ -26,8 +26,8 @@ const playfair = Playfair_Display({
 const navLinks: NavLink[] = [
   { label: "How it works", href: "#how-it-works" },
   { label: "Deposit calculator", href: "#calculator", active: true },
-  { label: "FAQ", href: "https://crowdtolive.bayuti.com/?page_id=1059&preview=true", external: true },
-  { label: "Property finder", href: "https://crowdtolive.bayuti.com/?page_id=1106&preview=true", external: true },
+  { label: "FAQ", href: "#faq" },
+  { label: "Bayuti Finder", href: "https://crowdtolive-2026-api.vercel.app/landing/bayuti-finder", external: true },
   { label: "Contact", href: "https://crowdtolive.bayuti.com/?page_id=1044&preview=true", external: true },
 ];
 
