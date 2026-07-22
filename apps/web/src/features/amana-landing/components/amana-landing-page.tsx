@@ -4,6 +4,8 @@
 
 import { useMemo, useState } from "react";
 import { Inter, Playfair_Display } from "next/font/google";
+import Script from "next/script";
+import { HubspotRegistrationForm } from "./hubspot-registration-form";
 import styles from "./amana-landing-page.module.css";
 
 type NavLink = {
@@ -36,22 +38,6 @@ const heroStats = [
   { value: "3", label: "Working days liquidity" },
   { value: "£500", label: "Minimum to start" },
   { value: "0", label: "Management fees" },
-] as const;
-
-const savingsAmounts = [
-  "Select an amount",
-  "£250 to £499 per month",
-  "£500 to £999 per month",
-  "£1,000 to £1,999 per month",
-  "£2,000 or more per month",
-] as const;
-
-const timelines = [
-  "Select a timeframe",
-  "Within 12 months",
-  "1 to 2 years",
-  "2 to 4 years",
-  "More than 4 years",
 ] as const;
 
 const proofItems = [
@@ -150,10 +136,6 @@ function calculateCompound(monthly: number, months: number, rate: number) {
   return total;
 }
 
-function submitInterest() {
-  window.alert("Thank you! We will be in touch shortly.");
-}
-
 export function AmanaLandingPage() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [monthly, setMonthly] = useState(500);
@@ -173,6 +155,7 @@ export function AmanaLandingPage() {
 
   return (
     <div className={`${styles.root} ${inter.className} ${playfair.variable}`}>
+      <Script src="https://js.hsforms.net/forms/embed/7221343.js" strategy="afterInteractive" />
       <div className={styles.page}>
         <div className={styles.fcaBar}>
           <div className={styles.fcaInner}>
@@ -320,65 +303,7 @@ export function AmanaLandingPage() {
             <div className={styles.formCard} id="register">
               <h3>Register your interest</h3>
               <p>Join homebuyers already growing their home deposit with Amana. Free to register, no commitment required.</p>
-              <div className={styles.formRow}>
-                <div>
-                  <label className={styles.formLabel} htmlFor="amana-name">
-                    Full name
-                  </label>
-                  <input className={styles.formInput} id="amana-name" type="text" placeholder="Sarah Ahmed" autoComplete="name" />
-                </div>
-                <div>
-                  <label className={styles.formLabel} htmlFor="amana-email">
-                    Email address
-                  </label>
-                  <input
-                    className={styles.formInput}
-                    id="amana-email"
-                    type="email"
-                    placeholder="sarah@example.com"
-                    autoComplete="email"
-                  />
-                </div>
-                <div>
-                  <label className={styles.formLabel} htmlFor="amana-phone">
-                    Phone number
-                  </label>
-                  <input
-                    className={styles.formInput}
-                    id="amana-phone"
-                    type="tel"
-                    placeholder="+44 7700 000 000"
-                    autoComplete="tel"
-                  />
-                </div>
-                <div>
-                  <label className={styles.formLabel} htmlFor="amana-save">
-                    Monthly savings amount
-                  </label>
-                  <select className={`${styles.formInput} ${styles.formSelect}`} id="amana-save" defaultValue="">
-                    {savingsAmounts.map((option, index) => (
-                      <option key={`${option}-${index}`} value={index === 0 ? "" : option}>
-                        {option}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div>
-                  <label className={styles.formLabel} htmlFor="amana-timeline">
-                    When are you looking to buy?
-                  </label>
-                  <select className={`${styles.formInput} ${styles.formSelect}`} id="amana-timeline" defaultValue="">
-                    {timelines.map((option, index) => (
-                      <option key={`${option}-${index}`} value={index === 0 ? "" : option}>
-                        {option}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <button type="button" className={styles.formSubmit} onClick={submitInterest}>
-                  Register my interest
-                </button>
-              </div>
+              <HubspotRegistrationForm className={styles.hubspotHeroForm} />
               <p className={styles.formDisclaimer}>
                 By registering you agree to our privacy policy. Capital at risk. Expected 5% return is not guaranteed.
               </p>
@@ -572,20 +497,7 @@ export function AmanaLandingPage() {
             <p>Join homebuyers already growing their home deposit with Amana. Register now. Takes under 2 minutes.</p>
 
             <div className={styles.ctaForm}>
-              <div className={styles.ctaFormRow}>
-                <input className={styles.ctaFormInput} type="text" placeholder="Full name" autoComplete="name" />
-                <input className={styles.ctaFormInput} type="email" placeholder="Email address" autoComplete="email" />
-              </div>
-              <input
-                className={styles.ctaFormInput}
-                type="tel"
-                placeholder="Phone number"
-                autoComplete="tel"
-                style={{ width: "100%", marginBottom: 12 }}
-              />
-              <button type="button" className={styles.ctaFormSubmit} onClick={submitInterest}>
-                Register my interest, it&apos;s free
-              </button>
+              <HubspotRegistrationForm className={styles.hubspotCtaForm} />
               <p className={styles.ctaDisclaimer}>
                 FCA regulated. Capital at risk. Expected 5% return not guaranteed. By registering you agree to our privacy
                 policy and terms of use.
@@ -603,8 +515,9 @@ export function AmanaLandingPage() {
               office at 809 Salisbury House, 29 Finsbury Circus, London, EC2M 7AQ.
             </p>
             <div className={styles.footLinks}>
-              <a href="#">Privacy policy</a>
-              <a href="#">Terms of use</a>
+              <a href="/terms-of-use">Terms of use</a>
+              <a href="/privacy-policy">Privacy policy</a>
+              <a href="/cookies-notice">Cookies notice</a>
               <a href="#">Risk warning</a>
               <a href="https://www.fca.org.uk/investsmart" target="_blank" rel="noopener noreferrer">
                 FCA InvestSmart

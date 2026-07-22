@@ -453,65 +453,14 @@
   line-height: 1.5;
 }
 
-.formRow {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.formLabel {
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--navy);
-  display: block;
-  margin-bottom: 5px;
-}
-
-.formInput {
+.hubspotHeroForm,
+.hubspotCtaForm {
   width: 100%;
-  padding: 11px 14px;
-  font-size: 0.88rem;
-  font-family: inherit;
-  color: var(--navy);
-  background: #f8f9ff;
-  border: 1.5px solid var(--border);
-  border-radius: 9px;
-  outline: none;
-  transition: border-color 0.15s;
 }
 
-.formInput:focus {
-  border-color: var(--teal);
-  background: var(--white);
-}
-
-.formInput::placeholder {
-  color: #a0a8c0;
-}
-
-.formSelect {
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 24 24'%3E%3Cpath stroke='%235A6080' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-}
-
-.formSubmit {
+.hubspotHeroForm :global(.hs-form-frame),
+.hubspotCtaForm :global(.hs-form-frame) {
   width: 100%;
-  padding: 13px;
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--white);
-  background: var(--navy);
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background 0.15s;
-  margin-top: 4px;
-}
-
-.formSubmit:hover {
-  background: var(--navy-mid);
 }
 
 .formDisclaimer {
@@ -1019,51 +968,6 @@
   padding: 28px 24px;
 }
 
-.ctaFormRow {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 12px;
-}
-
-.ctaFormInput {
-  width: 100%;
-  padding: 12px 14px;
-  font-size: 0.88rem;
-  font-family: inherit;
-  color: var(--white);
-  background: rgba(255, 255, 255, 0.07);
-  border: 1.5px solid rgba(255, 255, 255, 0.12);
-  border-radius: 9px;
-  outline: none;
-  transition: border-color 0.15s;
-}
-
-.ctaFormInput:focus {
-  border-color: var(--teal);
-}
-
-.ctaFormInput::placeholder {
-  color: rgba(255, 255, 255, 0.3);
-}
-
-.ctaFormSubmit {
-  width: 100%;
-  padding: 14px;
-  font-size: 0.92rem;
-  font-weight: 700;
-  color: var(--navy-deep);
-  background: var(--teal);
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background 0.15s;
-  box-shadow: 0 4px 18px rgba(77, 191, 160, 0.3);
-}
-
-.ctaFormSubmit:hover {
-  background: var(--teal-dark);
-}
 
 .ctaDisclaimer {
   font-size: 0.71rem;
@@ -1134,9 +1038,6 @@
     gap: 40px;
   }
 
-  .ctaFormRow {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 860px) {
