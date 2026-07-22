@@ -1,10 +1,11 @@
-/* eslint-disable @next/next/no-img-element */
+"use client";
 
-import { Inter } from "next/font/google";
+import { Lato } from "next/font/google";
 import Link from "next/link";
+import { useState } from "react";
 import styles from "./legal-page.module.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const lato = Lato({ subsets: ["latin"], weight: ["400", "700", "900"] });
 
 type DocumentId = "terms" | "privacy" | "cookies";
 
@@ -75,37 +76,69 @@ const documents: Record<DocumentId, { title: string; introduction: React.ReactNo
   },
 };
 
-const navLinks = [
-  { label: "How it works", href: "/landing/amana-home-deposit-builder#how-it-works" },
-  { label: "Deposit calculator", href: "/landing/amana-home-deposit-builder#calculator" },
-  { label: "FAQ", href: "/landing/amana-home-deposit-builder#faq" },
-  { label: "Bayuti Finder", href: "/landing/bayuti-finder" },
-  { label: "Contact", href: "/contact" },
-] as const;
+function BayutiLogo({ footer = false }: { footer?: boolean }) {
+  return (
+    <span className={footer ? styles.footerLogo : styles.logo} aria-label="Bayuti">
+      <span className={styles.logoName}>Bay<span>u</span>ti</span>
+      <span className={styles.logoTagline}>Value investing</span>
+    </span>
+  );
+}
+
+function SocialIcon({ type }: { type: "facebook" | "instagram" | "linkedin" }) {
+  const labels = { facebook: "f", instagram: "◎", linkedin: "in" };
+  return <span aria-hidden="true" className={`${styles.socialIcon} ${styles[type]}`}>{labels[type]}</span>;
+}
 
 export function LegalPage({ documentId }: { documentId: DocumentId }) {
   const document = documents[documentId];
+  const [learnOpen, setLearnOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const closeMenus = () => {
+    setLearnOpen(false);
+    setMobileOpen(false);
+  };
 
   return (
-    <div className={`${styles.root} ${inter.className}`}>
+    <div className={`${styles.root} ${lato.className}`}>
       <header className={styles.header}>
         <div className={styles.headerInner}>
-          <Link href="/landing/amana-home-deposit-builder" className={styles.logo} aria-label="CrowdToLive home">
-            <img src="/homepage/logo.png" alt="CrowdToLive by Bayuti" />
-          </Link>
+          <a href="https://www.bayuti.com/" className={styles.logoLink} aria-label="Bayuti home"><BayutiLogo /></a>
           <nav className={styles.navigation} aria-label="Primary navigation">
-            {navLinks.map((link) => <Link key={link.label} href={link.href}>{link.label}</Link>)}
+            <a href="https://www.bayuti.com/who-we-are">Who are we?</a>
+            <a href="https://www.bayuti.com/how-it-works">How it Works?</a>
+            <a href="https://crowdtolive.bayuti.com" target="_blank" rel="noopener noreferrer">Homebuyers</a>
+            <div className={styles.learnMenu}>
+              <button type="button" onClick={() => setLearnOpen((isOpen) => !isOpen)} aria-expanded={learnOpen} aria-haspopup="menu">Learn <span aria-hidden="true">⌄</span></button>
+              {learnOpen ? <div className={styles.learnDropdown} role="menu">
+                <a href="https://www.bayuti.com/faq" role="menuitem" onClick={closeMenus}>FAQs</a>
+                <a href="https://www.bayuti.com/help-and-support" role="menuitem" onClick={closeMenus}>Help &amp; support</a>
+              </div> : null}
+            </div>
           </nav>
           <div className={styles.actions}>
-            <a href="https://www.bayuti.com/" target="_blank" rel="noopener noreferrer" className={styles.secondaryButton}>Invest in properties</a>
-            <Link href="/landing/amana-home-deposit-builder#register" className={styles.primaryButton}>Amana</Link>
+            <a href="https://www.bayuti.com/login" className={styles.loginButton}>Login</a>
+            <a href="https://www.bayuti.com/sign-up" className={styles.signupButton}>Sign Up</a>
           </div>
+          <button type="button" className={styles.mobileMenuButton} onClick={() => setMobileOpen((isOpen) => !isOpen)} aria-label="Toggle navigation" aria-expanded={mobileOpen}><span /><span /><span /></button>
         </div>
+        {mobileOpen ? <nav className={styles.mobileNavigation} aria-label="Mobile navigation">
+          <a href="https://www.bayuti.com/who-we-are" onClick={closeMenus}>Who are we?</a>
+          <a href="https://www.bayuti.com/how-it-works" onClick={closeMenus}>How it Works?</a>
+          <a href="https://crowdtolive.bayuti.com" target="_blank" rel="noopener noreferrer" onClick={closeMenus}>Homebuyers</a>
+          <a href="https://www.bayuti.com/faq" onClick={closeMenus}>FAQs</a>
+          <a href="https://www.bayuti.com/help-and-support" onClick={closeMenus}>Help &amp; support</a>
+          <a href="https://www.bayuti.com/login" onClick={closeMenus}>Login</a>
+          <a href="https://www.bayuti.com/sign-up" onClick={closeMenus}>Sign Up</a>
+        </nav> : null}
       </header>
+
+      <aside className={styles.warningBar} aria-label="Investment risk warning">
+        <p><strong>FCA WARNING:</strong> Don&apos;t invest unless you&apos;re prepared to lose all the money you invest. This is a high-risk investment and you are unlikely to be protected if something goes wrong. <a href="https://www.fca.org.uk/investsmart/5-questions-ask-you-invest" target="_blank" rel="noopener noreferrer">Take 2 mins to learn more</a></p>
+      </aside>
 
       <main className={styles.main}>
         <article className={styles.document}>
-          <p className={styles.eyebrow}>Bayuti legal information</p>
           <h1>{document.title}</h1>
           <div className={styles.introduction}>{document.introduction.map((paragraph, index) => <p key={index}>{paragraph}</p>)}</div>
           {document.sections.map((section) => (
@@ -121,14 +154,31 @@ export function LegalPage({ documentId }: { documentId: DocumentId }) {
 
       <footer className={styles.footer}>
         <div className={styles.footerInner}>
-          <img src="/homepage/logo.png" alt="CrowdToLive by Bayuti" className={styles.footerLogo} />
-          <p>Bayuti is a registered trading name of Elite Capital and Management Services Limited, authorised and regulated by the Financial Conduct Authority (Reference Number: 822039). Elite Capital and Management Services Limited (Companies House number: 10347767) is registered in England and Wales with its registered office at Solar House, 3rd Floor, 1-9 Romford Road, London, England, E15 4LJ.</p>
-          <nav className={styles.footerLinks} aria-label="Legal links">
-            <Link href="/terms-of-use">Terms of use</Link>
-            <Link href="/privacy-policy">Privacy policy</Link>
-            <Link href="/cookies-notice">Cookies notice</Link>
-          </nav>
-          <p>© 2026 CrowdToLive by Bayuti. All rights reserved.</p>
+          <div className={styles.footerTop}>
+            <div className={styles.footerBrand}>
+              <a href="https://www.bayuti.com/" className={styles.footerLogoLink}><BayutiLogo footer /></a>
+              <p>Discover Shariah-compliant investments starting from £50 and grow your wealth with reliable rental income.</p>
+              <a href="https://islamiccouncil.com/ifa/" target="_blank" rel="noopener noreferrer" className={styles.ifaBadge}><span>IFA</span> Islamic Finance Advisory</a>
+            </div>
+            <div className={styles.footerDetails}>
+              <p>Bayuti is a registered trading name of Elite Capital and Management Services Limited, which is authorised and regulated by the Financial Conduct Authority (Reference Number: 822039). Elite Capital and Management Services Limited (Companies House number: 10347767) is registered in England and Wales with its registered office at 809 Salisbury House, 29 Finsbury Circus, London EC2M 7AQ.</p>
+              <div className={styles.socialLinks} aria-label="Bayuti social media">
+                <a href="https://www.facebook.com/bayutiofficial" target="_blank" rel="noopener noreferrer" aria-label="Bayuti on Facebook"><SocialIcon type="facebook" /></a>
+                <a href="https://www.instagram.com/bayuti_official?igsh=MTVqOXB6aDB6bzd5Mw==" target="_blank" rel="noopener noreferrer" aria-label="Bayuti on Instagram"><SocialIcon type="instagram" /></a>
+                <a href="https://www.linkedin.com/company/bayuti" target="_blank" rel="noopener noreferrer" aria-label="Bayuti on LinkedIn"><SocialIcon type="linkedin" /></a>
+              </div>
+            </div>
+          </div>
+          <div className={styles.footerBottom}>
+            <nav className={styles.footerLinks} aria-label="Footer navigation">
+              <Link href="/terms-of-use">Terms of Use</Link>
+              <Link href="/privacy-policy">Privacy Policy</Link>
+              <Link href="/cookies-notice">Cookies Notice</Link>
+              <a href="https://www.bayuti.com/faq">FAQs</a>
+              <a href="https://www.bayuti.com/help-and-support">Help &amp; Support</a>
+            </nav>
+            <p>© 2026 Bayuti. All rights reserved.</p>
+          </div>
         </div>
       </footer>
     </div>
