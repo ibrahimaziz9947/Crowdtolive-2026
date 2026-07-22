@@ -2,6 +2,7 @@
 
 /* eslint-disable @next/next/no-img-element */
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
 import { Inter, Playfair_Display } from "next/font/google";
 import Script from "next/script";
@@ -175,10 +176,7 @@ export function AmanaLandingPage() {
         <header className={styles.siteHeader} id="siteHeader">
           <div className={styles.headerInner}>
             <a href="https://crowdtolive.bayuti.com/" className={styles.logo}>
-              <img
-                src="https://crowdtolive.bayuti.com/wp-content/uploads/2025/12/Crowdtolive-W-R-3.png"
-                alt="CrowdToLive by Bayuti"
-              />
+              <img src="/images/amana-primary-color.png" alt="Amana" />
             </a>
 
             <nav className={styles.headerNav}>
@@ -193,6 +191,9 @@ export function AmanaLandingPage() {
                   {link.label}
                 </a>
               ))}
+              <Link href="/" className={styles.navButton}>
+                Crowdtolive
+              </Link>
             </nav>
 
             <div className={styles.headerBtns}>
@@ -237,6 +238,9 @@ export function AmanaLandingPage() {
                 {link.label}
               </a>
             ))}
+            <Link href="/" className={styles.mobNavButton} onClick={() => setMobileOpen(false)}>
+              Crowdtolive
+            </Link>
           </div>
           <div className={styles.mobBtns}>
             <a

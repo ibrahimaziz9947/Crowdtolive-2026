@@ -132,6 +132,23 @@
   font-weight: 600;
 }
 
+.root .navButton {
+  margin-left: 8px;
+  padding: 8px 14px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+
+.root .navButton:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
 .headerBtns {
   flex-shrink: 0;
   display: flex;
@@ -248,6 +265,23 @@
 .mobLink:hover {
   background: rgba(255, 255, 255, 0.07);
   color: var(--white);
+}
+
+.mobNavButton {
+  margin-top: 8px;
+  padding: 12px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  text-align: center;
+  transition: background 0.13s;
+}
+
+.mobNavButton:hover {
+  background: rgba(255, 255, 255, 0.14);
 }
 
 .mobBtns {
