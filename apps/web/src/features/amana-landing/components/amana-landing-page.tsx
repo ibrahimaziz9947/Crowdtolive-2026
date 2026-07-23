@@ -37,7 +37,7 @@ const navLinks: NavLink[] = [
 const heroStats = [
   { value: "5%*", label: "Expected annual return" },
   { value: "3", label: "Working days liquidity" },
-  { value: "£500", label: "Minimum to start" },
+  { value: "£50", label: "Minimum to start" },
   { value: "0", label: "Management fees" },
 ] as const;
 
@@ -74,7 +74,7 @@ const steps = [
   {
     title: "Fund your wallet",
     description:
-      "Deposit from £500. Add a monthly recurring payment and let your investment grow automatically. Pause or cancel any time.",
+      "Deposit from £50. Add a monthly recurring payment and let your investment grow automatically. Pause or cancel any time.",
     icon: WalletIcon,
   },
   {
@@ -110,7 +110,7 @@ const faqs = [
   {
     question: "What is the minimum I can invest?",
     answer:
-      "The minimum deposit to start is £500. You can then add a monthly recurring payment from any amount to keep building your investment automatically. There is no maximum. Amana is designed for homebuyers at all stages of their saving journey.",
+      "The minimum deposit to start is £50. You can then add a monthly recurring payment from any amount to keep building your investment automatically. There is no maximum. Amana is designed for homebuyers at all stages of their saving journey.",
   },
   {
     question: "How does Amana connect to CrowdToLive alternative home financing?",
@@ -175,9 +175,9 @@ export function AmanaLandingPage() {
 
         <header className={styles.siteHeader} id="siteHeader">
           <div className={styles.headerInner}>
-            <a href="https://crowdtolive.bayuti.com/" className={styles.logo}>
+            <div className={styles.logo} aria-label="Amana">
               <img src="/images/amana-primary-color.png" alt="Amana" />
-            </a>
+            </div>
 
             <nav className={styles.headerNav}>
               {navLinks.map((link) => (
@@ -281,7 +281,7 @@ export function AmanaLandingPage() {
                 {heroStats.map((item) => (
                   <div key={item.label} className={styles.heroStat}>
                     <div className={styles.heroStatVal}>
-                      {item.value === "£500" ? "£500" : item.value.includes("*") ? (
+                      {item.value === "£50" ? "£50" : item.value.includes("*") ? (
                         <>
                           5%<span>*</span>
                         </>
